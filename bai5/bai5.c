@@ -105,7 +105,7 @@ void sapXepTang(SachNode *head) {
     }
 }
 
-int main() {
+void Bai5() {
     SachNode *head = NULL;
     int n;
     printf("Nhap so luong cuon sach: ");
@@ -132,5 +132,4 @@ int main() {
 
     // Giải phóng bộ nhớ
     while(head != NULL) { SachNode *t = head; head = head->next; free(t); }
-    return 0;
 }

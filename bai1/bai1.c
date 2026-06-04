@@ -1,15 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include "bai1.h"
 
-// a. Hàm nhập dãy số thực
 int Nhap(float **a) {
     int n;
     printf("Nhap so phan tu n: ");
     scanf("%d", &n);
     if (n <= 0) return 0;
 
-    // Cấp phát bộ nhớ cho con trỏ *a
     *a = (float *)malloc((n) * sizeof(float));
     if (*a == NULL) {
         printf("Cap phat bo nho that bai!\n");
@@ -18,12 +17,11 @@ int Nhap(float **a) {
 
     for (int i = 0; i < n; i++) {
         printf("a[%d] = ", i);
-        scanf("%f", (*a) + i); // Hoặc &((*a)[i])
+        scanf("%f", (*a) + i);
     }
     return n;
 }
 
-// Hàm xuất dãy số (bổ sung để chạy menu)
 void Xuat(int n, float *a) {
     if (n == 0 || a == NULL) {
         printf("Day so rong!\n");
@@ -36,7 +34,6 @@ void Xuat(int n, float *a) {
     printf("\n");
 }
 
-// b. Hàm tìm max của các phần tử dương
 int MaxDuong(int n, float *a, float *max) {
     int found = 0;
     for (int i = 0; i < n; i++) {
@@ -51,15 +48,12 @@ int MaxDuong(int n, float *a, float *max) {
             }
         }
     }
-    return found; // Trả về 1 nếu có số dương, 0 nếu không có
+    return found;
 }
 
-// c. Kiểm tra tính chất Fibonacci 
-// Từ phần tử thứ 3 (chỉ số i=2): a[i] = a[i-1] + a[i-2]
 int Fibo(int n, float *a) {
-    if (n < 3) return 0; // Ít hơn 3 phần tử không xét quy luật này
+    if (n < 3) return 0;
     for (int i = 2; i < n; i++) {
-        // Sử dụng epsilon đề phòng sai số số thực
         if (fabs(a[i] - (a[i - 1] + a[i - 2])) > 0.0001) {
             return 0; 
         }
@@ -67,7 +61,6 @@ int Fibo(int n, float *a) {
     return 1;
 }
 
-// d. Hàm Menu
 int Menu1() {
     int chon;
     printf("\n========= MENU BAI 1 =========\n");
@@ -81,7 +74,7 @@ int Menu1() {
     return chon;
 }
 
-int main() {
+void Bai1() {
     float *a = NULL;
     int n = 0;
     int chon;
@@ -91,7 +84,7 @@ int main() {
         chon = Menu1();
         switch (chon) {
             case 1:
-                if (a != NULL) free(a); // Giải phóng nếu đã nhập trước đó
+                if (a != NULL) free(a);
                 n = Nhap(&a);
                 break;
             case 2:
@@ -124,5 +117,4 @@ int main() {
     } while (chon != 5);
 
     if (a != NULL) free(a);
-    return 0;
 }

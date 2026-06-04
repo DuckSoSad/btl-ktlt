@@ -109,7 +109,7 @@ int Menu2() {
     return chon;
 }
 
-int main() {
+void Bai2() {
     Sach *A = NULL;
     int n = 0;
     int chon;
@@ -144,5 +144,4 @@ int main() {
     } while (chon != 5);
 
     if (A != NULL) free(A);
-    return 0;
 }

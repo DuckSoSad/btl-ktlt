@@ -128,7 +128,7 @@ void giaiPhong(Node *head) {
     }
 }
 
-int main() {
+void Bai3() {
     printf("--- NHAP DA THUC 1 ---\n");
     Node *dt1 = nhapDaThuc();
     printf("--- NHAP DA THUC 2 ---\n");
@@ -151,5 +151,4 @@ int main() {
     giaiPhong(dt1);
     giaiPhong(dt2);
     giaiPhong(dtTong);
-    return 0;
 }

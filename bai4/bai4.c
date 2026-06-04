@@ -96,7 +96,7 @@ void sapXepGiam(GiangVien *head) {
     }
 }
 
-int main() {
+void Bai4() {
     GiangVien *head = NULL;
     int n;
     printf("Nhap so luong giang vien: ");
@@ -120,5 +120,4 @@ int main() {
 
     // Giải phóng bộ nhớ
     while(head != NULL) { GiangVien *t = head; head = head->next; free(t); }
-    return 0;
 }
